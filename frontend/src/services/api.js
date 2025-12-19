@@ -1,0 +1,57 @@
+const BASE_URL = "http://127.0.0.1:8000"; 
+
+export async function getProjects() {
+  const res = await fetch(`${BASE_URL}/dashboard/projects`);
+  return res.json();
+}
+
+export async function getClients() {
+  const res = await fetch(`${BASE_URL}/dashboard/clients`);
+  return res.json();
+}
+
+export async function sendContact(data) {
+  const res = await fetch(`${BASE_URL}/dashboard/contact`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return res.json();
+}
+
+export async function subscribeEmail(email) {
+  const res = await fetch(`${BASE_URL}/dashboard/subscribe`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  });
+  return res.json();
+}
+
+export async function addProject(data) {
+  const res = await fetch("http://127.0.0.1:8000/admin/projects", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return res.json();
+}
+
+export async function addClient(data) {
+  const res = await fetch("http://127.0.0.1:8000/admin/clients", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return res.json();
+}
+
+export async function getContacts() {
+  const res = await fetch("http://127.0.0.1:8000/admin/contacts");
+  return res.json();
+}
+
+export async function getSubscribers() {
+  const res = await fetch("http://127.0.0.1:8000/admin/subscribers");
+  return res.json();
+}
