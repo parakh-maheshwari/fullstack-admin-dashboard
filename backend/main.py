@@ -8,7 +8,8 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:5173"
+        "https://fullstack-admin-dashboard-iv23dxefc-parakh-maheshwaris-projects.vercel.app",
+        "https://fullstack-admin-dashboard-wine.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
