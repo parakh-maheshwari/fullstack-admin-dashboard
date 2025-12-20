@@ -1,4 +1,5 @@
-const BASE_URL = import.meta.env.VITE_API_BASE_URL; 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 export async function getProjects() {
   const res = await fetch(`${BASE_URL}/dashboard/projects`);
@@ -28,8 +29,9 @@ export async function subscribeEmail(email) {
   return res.json();
 }
 
+
 export async function addProject(data) {
-  const res = await fetch("http://127.0.0.1:8000/admin/projects", {
+  const res = await fetch(`${BASE_URL}/admin/projects`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -38,7 +40,7 @@ export async function addProject(data) {
 }
 
 export async function addClient(data) {
-  const res = await fetch("http://127.0.0.1:8000/admin/clients", {
+  const res = await fetch(`${BASE_URL}/admin/clients`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(data),
@@ -47,11 +49,11 @@ export async function addClient(data) {
 }
 
 export async function getContacts() {
-  const res = await fetch("http://127.0.0.1:8000/admin/contacts");
+  const res = await fetch(`${BASE_URL}/admin/contacts`);
   return res.json();
 }
 
 export async function getSubscribers() {
-  const res = await fetch("http://127.0.0.1:8000/admin/subscribers");
+  const res = await fetch(`${BASE_URL}/admin/subscribers`);
   return res.json();
 }
